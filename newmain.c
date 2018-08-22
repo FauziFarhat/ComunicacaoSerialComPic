@@ -69,26 +69,29 @@
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
-#define led 
+#define led PORTCbits.RC0 // led saída
 
 
 void inicializa_com(void) {
     //INICIALIZA PERIFÉRICO DE COMUNICAÇÃO
     TXSTA = 0b00100100; //MODO 8BITS, ASSÍNCRONO, HIGH SPEED
-    RCSTA = 0b10010000; //operando com divisor baud rate generator em modo 8bits
-    BAUDCON = 0b01000000; // veloc = 4.10e6 / (16 * (25 + 1 )) = 9615bps
-    SPBRG = 25;
+    RCSTA = 0b10010000; //habilita serial, 8 bits, habilitar recepcao
+    BAUDCON = 0b01000000; //operando com divisor baud rate generator em modo 8bits
+    SPBRG = 25; // veloc = 4.10e6 / (16 * (25 + 1 )) = 9615bps
     
 }
 
-void tx_byte(char byte) {
+void tx_byte(char dado) {
     //rotina de transmissão
     TXREG = dado;
-    while(TXSTAbits.);
+    while(TXSTAbits.TRMT == 0);
 }
 
 char rx_byte(void) {
     //rotina de recepção
+    char dado;
+    //rotina de rx
+    while(PIR1bits.RCIF == 00);
     return (0);
 }
 
@@ -97,8 +100,10 @@ void main() {
     int n;
     n = 0;
     inicializa_com();
-    TRISCbits.TRISC0; //saída
-    led = 0
+    TRISCbits.TRISC0 = 0; //saída
+    TRISCbits.TRISC6 = 0; //saída
+    TRISCbits.TRISC7 = 1; //saída
+    led = 0;
     while (1) {
         r = rx_byte();
         switch (r) {

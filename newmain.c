@@ -122,24 +122,42 @@ char rx_byte(void) {
 
 void main() {
     char r;
+    char endereco = 100;
     int n;
     n = 0;
     inicializa_com();
     TRISCbits.TRISC0 = 0; //saída
     TRISCbits.TRISC6 = 0; //saída
     TRISCbits.TRISC7 = 1; //saída
+    TRISA = 0b00001111; // pinos ra0, ra1, ra2 e ra3 sao entradas
+    ADCON1 = 0b00001111; // pinos da PORTA como entradas digitais
     led = 0;
     while (1) {
         r = rx_byte();
         switch (r) {
-            case '0': led = 0;
-                piscar_led = 0;
+            case 'a': endereco = 0;
                 break;
-            case '1': led = 1;
-                piscar_led = 0;
+            case 'b': endereco = 1;
                 break;
-            case '2': piscar_led = 1;
+            case 'c': endereco = 2;
+                break;
+            case '0': if (endereco == PORTA) {
+                    led = 0;
+                    piscar_led = 0;
+                }
+                break;
+            case '1': if (endereco == PORTA) {
+                    led = 1;
+                    piscar_led = 0;
+                }
+
+                break;
+            case '2': if (endereco == PORTA) {
+                    piscar_led = 1;
+                }
+
                 break;
         }
     }
 }
+

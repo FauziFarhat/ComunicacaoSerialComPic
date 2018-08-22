@@ -89,6 +89,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S148 . . . ]
 "3873
 [v _TRISCbits `VS148 ~T0 @X0 0 e@3988 ]
+"3425
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"6579
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"2312
+[v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
 "7 newmain.c
 [p x PLLDIV=1 ]
 "8
@@ -3846,85 +3852,143 @@ Version 3.2 HI-TECH Software Intermediate Code
 "124
 [v _r `uc ~T0 @X0 1 a ]
 "125
-[v _n `i ~T0 @X0 1 a ]
+[v _endereco `uc ~T0 @X0 1 a ]
 [; ;newmain.c: 124: char r;
-[; ;newmain.c: 125: int n;
-[; ;newmain.c: 126: n = 0;
+[; ;newmain.c: 125: char endereco = 100;
+[e = _endereco -> -> 100 `i `uc ]
 "126
-[e = _n -> 0 `i ]
-[; ;newmain.c: 127: inicializa_com();
+[v _n `i ~T0 @X0 1 a ]
+[; ;newmain.c: 126: int n;
+[; ;newmain.c: 127: n = 0;
 "127
-[e ( _inicializa_com ..  ]
-[; ;newmain.c: 128: TRISCbits.TRISC0 = 0;
+[e = _n -> 0 `i ]
+[; ;newmain.c: 128: inicializa_com();
 "128
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-[; ;newmain.c: 129: TRISCbits.TRISC6 = 0;
+[e ( _inicializa_com ..  ]
+[; ;newmain.c: 129: TRISCbits.TRISC0 = 0;
 "129
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;newmain.c: 130: TRISCbits.TRISC7 = 1;
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;newmain.c: 130: TRISCbits.TRISC6 = 0;
 "130
-[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-[; ;newmain.c: 131: PORTCbits.RC0 = 0;
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+[; ;newmain.c: 131: TRISCbits.TRISC7 = 1;
 "131
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;newmain.c: 132: while (1) {
+[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
+[; ;newmain.c: 132: TRISA = 0b00001111;
 "132
+[e = _TRISA -> -> 15 `i `uc ]
+[; ;newmain.c: 133: ADCON1 = 0b00001111;
+"133
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;newmain.c: 134: PORTCbits.RC0 = 0;
+"134
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;newmain.c: 135: while (1) {
+"135
 [e :U 381 ]
 {
-[; ;newmain.c: 133: r = rx_byte();
-"133
+[; ;newmain.c: 136: r = rx_byte();
+"136
 [e = _r ( _rx_byte ..  ]
-[; ;newmain.c: 134: switch (r) {
-"134
+[; ;newmain.c: 137: switch (r) {
+"137
 [e $U 384  ]
 {
-[; ;newmain.c: 135: case '0': PORTCbits.RC0 = 0;
-"135
-[e :U 385 ]
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;newmain.c: 136: piscar_led = 0;
-"136
-[e = _piscar_led -> -> 0 `i `uc ]
-[; ;newmain.c: 137: break;
-"137
-[e $U 383  ]
-[; ;newmain.c: 138: case '1': PORTCbits.RC0 = 1;
+[; ;newmain.c: 138: case 'a': endereco = 0;
 "138
-[e :U 386 ]
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;newmain.c: 139: piscar_led = 0;
+[e :U 385 ]
+[e = _endereco -> -> 0 `i `uc ]
+[; ;newmain.c: 139: break;
 "139
-[e = _piscar_led -> -> 0 `i `uc ]
-[; ;newmain.c: 140: break;
+[e $U 383  ]
+[; ;newmain.c: 140: case 'b': endereco = 1;
 "140
-[e $U 383  ]
-[; ;newmain.c: 141: case '2': piscar_led = 1;
+[e :U 386 ]
+[e = _endereco -> -> 1 `i `uc ]
+[; ;newmain.c: 141: break;
 "141
-[e :U 387 ]
-[e = _piscar_led -> -> 1 `i `uc ]
-[; ;newmain.c: 142: break;
+[e $U 383  ]
+[; ;newmain.c: 142: case 'c': endereco = 2;
 "142
-[e $U 383  ]
+[e :U 387 ]
+[e = _endereco -> -> 2 `i `uc ]
+[; ;newmain.c: 143: break;
 "143
-}
-[; ;newmain.c: 143: }
 [e $U 383  ]
-"134
-[e :U 384 ]
-[e [\ _r , $ -> -> 48 `ui `uc 385
- , $ -> -> 49 `ui `uc 386
- , $ -> -> 50 `ui `uc 387
- 383 ]
-"143
-[e :U 383 ]
+[; ;newmain.c: 144: case '0': if (endereco == PORTA) {
 "144
+[e :U 388 ]
+[e $ ! == -> _endereco `i -> _PORTA `i 389  ]
+{
+[; ;newmain.c: 145: PORTCbits.RC0 = 0;
+"145
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;newmain.c: 146: piscar_led = 0;
+"146
+[e = _piscar_led -> -> 0 `i `uc ]
+"147
+}
+[e :U 389 ]
+[; ;newmain.c: 147: }
+[; ;newmain.c: 148: break;
+"148
+[e $U 383  ]
+[; ;newmain.c: 149: case '1': if (endereco == PORTA) {
+"149
+[e :U 390 ]
+[e $ ! == -> _endereco `i -> _PORTA `i 391  ]
+{
+[; ;newmain.c: 150: PORTCbits.RC0 = 1;
+"150
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+[; ;newmain.c: 151: piscar_led = 0;
+"151
+[e = _piscar_led -> -> 0 `i `uc ]
+"152
+}
+[e :U 391 ]
+[; ;newmain.c: 152: }
+[; ;newmain.c: 154: break;
+"154
+[e $U 383  ]
+[; ;newmain.c: 155: case '2': if (endereco == PORTA) {
+"155
+[e :U 392 ]
+[e $ ! == -> _endereco `i -> _PORTA `i 393  ]
+{
+[; ;newmain.c: 156: piscar_led = 1;
+"156
+[e = _piscar_led -> -> 1 `i `uc ]
+"157
+}
+[e :U 393 ]
+[; ;newmain.c: 157: }
+[; ;newmain.c: 159: break;
+"159
+[e $U 383  ]
+"160
+}
+[; ;newmain.c: 160: }
+[e $U 383  ]
+"137
+[e :U 384 ]
+[e [\ _r , $ -> -> 97 `ui `uc 385
+ , $ -> -> 98 `ui `uc 386
+ , $ -> -> 99 `ui `uc 387
+ , $ -> -> 48 `ui `uc 388
+ , $ -> -> 49 `ui `uc 390
+ , $ -> -> 50 `ui `uc 392
+ 383 ]
+"160
+[e :U 383 ]
+"161
 }
 [e :U 380 ]
-"132
+"135
 [e $U 381  ]
 [e :U 382 ]
-[; ;newmain.c: 144: }
-[; ;newmain.c: 145: }
-"145
+[; ;newmain.c: 161: }
+[; ;newmain.c: 162: }
+"162
 [e :UE 379 ]
 }

@@ -92,7 +92,8 @@ char rx_byte(void) {
     char dado;
     //rotina de rx
     while(PIR1bits.RCIF == 00);
-    return (0);
+    dado = RCREG;
+    return (dado);
 }
 
 void main() {

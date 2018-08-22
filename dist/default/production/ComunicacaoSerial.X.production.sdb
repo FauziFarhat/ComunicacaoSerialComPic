@@ -27,9 +27,9 @@
 [v _inicializa_com inicializa_com `(v  1 e 1 0 ]
 "90
 [v _rx_byte rx_byte `(uc  1 e 1 0 ]
-"98
+"99
 [v _main main `(v  1 e 1 0 ]
-[s S144 . 1 `uc 1 RC0 1 0 :1:0 
+[s S145 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -39,30 +39,30 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "2603 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f4550.h
-[s S153 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S154 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S160 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S161 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S167 . 1 `uc 1 . 1 0 :1:0 
+[s S168 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S171 . 1 `uc 1 . 1 0 :1:0 
+[s S172 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S174 . 1 `S144 1 . 1 0 `S153 1 . 1 0 `S160 1 . 1 0 `S167 1 . 1 0 `S171 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES174  1 e 1 @3970 ]
-[s S112 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S175 . 1 `S145 1 . 1 0 `S154 1 . 1 0 `S161 1 . 1 0 `S168 1 . 1 0 `S172 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES175  1 e 1 @3970 ]
+[s S113 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -70,15 +70,15 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "3873
-[s S119 . 1 `uc 1 RC0 1 0 :1:0 
+[s S120 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S126 . 1 `S112 1 . 1 0 `S119 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES126  1 e 1 @3988 ]
+[u S127 . 1 `S113 1 . 1 0 `S120 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES127  1 e 1 @3988 ]
 [s S78 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -129,23 +129,27 @@
 [v _TXSTAbits TXSTAbits `VES49  1 e 1 @4012 ]
 "5400
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5412
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
 "5424
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "6060
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
-"98 C:\Users\Fauzi\MPLABXProjects\ComunicacaoSerial.X\newmain.c
+"99 C:\Users\Fauzi\MPLABXProjects\ComunicacaoSerial.X\newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
+"101
+[v main@n n `i  1 a 2 1 ]
 "100
-[v main@n n `i  1 a 2 0 ]
-"99
-[v main@r r `uc  1 a 1 2 ]
-"117
+[v main@r r `uc  1 a 1 3 ]
+"118
 } 0
 "90
 [v _rx_byte rx_byte `(uc  1 e 1 0 ]
 {
-"96
+"92
+[v rx_byte@dado dado `uc  1 a 1 0 ]
+"97
 } 0
 "75
 [v _inicializa_com inicializa_com `(v  1 e 1 0 ]

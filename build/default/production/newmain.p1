@@ -37,6 +37,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S172 . . . ]
 "4490
 [v _PIR1bits `VS172 ~T0 @X0 0 e@3998 ]
+"5412
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 [p mainexit ]
 "3856
 [s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -3714,89 +3716,92 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 368 ]
 [e $ == -> . . _PIR1bits 0 5 `i -> 0 `i 369  ]
 [e :U 370 ]
-[; ;newmain.c: 95: return (0);
+[; ;newmain.c: 95: dado = RCREG;
 "95
-[e ) -> -> 0 `i `uc ]
-[e $UE 367  ]
-[; ;newmain.c: 96: }
+[e = _dado _RCREG ]
+[; ;newmain.c: 96: return (dado);
 "96
+[e ) _dado ]
+[e $UE 367  ]
+[; ;newmain.c: 97: }
+"97
 [e :UE 367 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"98
+"99
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;newmain.c: 98: void main() {
+[; ;newmain.c: 99: void main() {
 [e :U _main ]
 [f ]
-"99
-[v _r `uc ~T0 @X0 1 a ]
 "100
-[v _n `i ~T0 @X0 1 a ]
-[; ;newmain.c: 99: char r;
-[; ;newmain.c: 100: int n;
-[; ;newmain.c: 101: n = 0;
+[v _r `uc ~T0 @X0 1 a ]
 "101
-[e = _n -> 0 `i ]
-[; ;newmain.c: 102: inicializa_com();
+[v _n `i ~T0 @X0 1 a ]
+[; ;newmain.c: 100: char r;
+[; ;newmain.c: 101: int n;
+[; ;newmain.c: 102: n = 0;
 "102
-[e ( _inicializa_com ..  ]
-[; ;newmain.c: 103: TRISCbits.TRISC0 = 0;
+[e = _n -> 0 `i ]
+[; ;newmain.c: 103: inicializa_com();
 "103
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-[; ;newmain.c: 104: TRISCbits.TRISC6 = 0;
+[e ( _inicializa_com ..  ]
+[; ;newmain.c: 104: TRISCbits.TRISC0 = 0;
 "104
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;newmain.c: 105: TRISCbits.TRISC7 = 1;
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;newmain.c: 105: TRISCbits.TRISC6 = 0;
 "105
-[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-[; ;newmain.c: 106: PORTCbits.RC0 = 0;
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+[; ;newmain.c: 106: TRISCbits.TRISC7 = 1;
 "106
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;newmain.c: 107: while (1) {
+[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
+[; ;newmain.c: 107: PORTCbits.RC0 = 0;
 "107
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+[; ;newmain.c: 108: while (1) {
+"108
 [e :U 373 ]
 {
-[; ;newmain.c: 108: r = rx_byte();
-"108
-[e = _r ( _rx_byte ..  ]
-[; ;newmain.c: 109: switch (r) {
+[; ;newmain.c: 109: r = rx_byte();
 "109
+[e = _r ( _rx_byte ..  ]
+[; ;newmain.c: 110: switch (r) {
+"110
 [e $U 376  ]
 {
-[; ;newmain.c: 110: case '0': PORTCbits.RC0 = 0;
-"110
+[; ;newmain.c: 111: case '0': PORTCbits.RC0 = 0;
+"111
 [e :U 377 ]
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;newmain.c: 111: break;
-"111
-[e $U 375  ]
-[; ;newmain.c: 112: case '1': PORTCbits.RC0 = 1;
+[; ;newmain.c: 112: break;
 "112
+[e $U 375  ]
+[; ;newmain.c: 113: case '1': PORTCbits.RC0 = 1;
+"113
 [e :U 378 ]
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;newmain.c: 113: break;
-"113
+[; ;newmain.c: 114: break;
+"114
 [e $U 375  ]
-"115
+"116
 }
-[; ;newmain.c: 115: }
+[; ;newmain.c: 116: }
 [e $U 375  ]
-"109
+"110
 [e :U 376 ]
 [e [\ _r , $ -> -> 48 `ui `uc 377
  , $ -> -> 49 `ui `uc 378
  375 ]
-"115
-[e :U 375 ]
 "116
+[e :U 375 ]
+"117
 }
 [e :U 372 ]
-"107
+"108
 [e $U 373  ]
 [e :U 374 ]
-[; ;newmain.c: 116: }
 [; ;newmain.c: 117: }
-"117
+[; ;newmain.c: 118: }
+"118
 [e :UE 371 ]
 }

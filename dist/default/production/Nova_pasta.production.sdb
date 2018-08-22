@@ -23,13 +23,15 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"75 C:\Users\Fauzi\MPLABXProjects\ComunicacaoSerial.X\newmain.c
+"74 C:\Users\Fauzi\Desktop\Nova pasta\newmain.c
 [v _inicializa_com inicializa_com `(v  1 e 1 0 ]
-"90
+"83
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+"107
 [v _rx_byte rx_byte `(uc  1 e 1 0 ]
-"99
+"123
 [v _main main `(v  1 e 1 0 ]
-[s S145 . 1 `uc 1 RC0 1 0 :1:0 
+[s S87 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -39,30 +41,30 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "2603 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f4550.h
-[s S154 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S96 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S161 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S103 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S168 . 1 `uc 1 . 1 0 :1:0 
+[s S110 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S172 . 1 `uc 1 . 1 0 :1:0 
+[s S114 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S175 . 1 `S145 1 . 1 0 `S154 1 . 1 0 `S161 1 . 1 0 `S168 1 . 1 0 `S172 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES175  1 e 1 @3970 ]
-[s S113 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S117 . 1 `S87 1 . 1 0 `S96 1 . 1 0 `S103 1 . 1 0 `S110 1 . 1 0 `S114 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES117  1 e 1 @3970 ]
+[s S189 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -70,16 +72,16 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "3873
-[s S120 . 1 `uc 1 RC0 1 0 :1:0 
+[s S196 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S127 . 1 `S113 1 . 1 0 `S120 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES127  1 e 1 @3988 ]
-[s S78 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S203 . 1 `S189 1 . 1 0 `S196 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES203  1 e 1 @3988 ]
+[s S154 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -89,19 +91,19 @@
 `uc 1 SPPIF 1 0 :1:7 
 ]
 "4490
-[s S87 . 1 `uc 1 . 1 0 :4:0 
+[s S163 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIF 1 0 :1:7 
 ]
-[u S93 . 1 `S78 1 . 1 0 `S87 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES93  1 e 1 @3998 ]
+[u S169 . 1 `S154 1 . 1 0 `S163 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES169  1 e 1 @3998 ]
 "4934
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
 "5144
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S26 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S35 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -111,7 +113,7 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "5183
-[s S35 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S44 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -120,13 +122,13 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S44 . 1 `uc 1 . 1 0 :6:0 
+[s S53 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S47 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S56 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S49 . 1 `S26 1 . 1 0 `S35 1 . 1 0 `S44 1 . 1 0 `S47 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES49  1 e 1 @4012 ]
+[u S58 . 1 `S35 1 . 1 0 `S44 1 . 1 0 `S53 1 . 1 0 `S56 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES58  1 e 1 @4012 ]
 "5400
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "5412
@@ -135,24 +137,50 @@
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "6060
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
-"99 C:\Users\Fauzi\MPLABXProjects\ComunicacaoSerial.X\newmain.c
+"8144
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"9841
+[v _PSA PSA `VEb  1 e 0 @32427 ]
+"10109
+[v _T08BIT T08BIT `VEb  1 e 0 @32430 ]
+"10113
+[v _T0CS T0CS `VEb  1 e 0 @32429 ]
+"10121
+[v _T0PS0 T0PS0 `VEb  1 e 0 @32424 ]
+"10123
+[v _T0PS1 T0PS1 `VEb  1 e 0 @32425 ]
+"10125
+[v _T0PS2 T0PS2 `VEb  1 e 0 @32426 ]
+"10175
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"10179
+[v _TMR0ON TMR0ON `VEb  1 e 0 @32431 ]
+"105 C:\Users\Fauzi\Desktop\Nova pasta\newmain.c
+[v _piscar_led piscar_led `uc  1 e 1 0 ]
+"123
 [v _main main `(v  1 e 1 0 ]
 {
-"101
-[v main@n n `i  1 a 2 1 ]
-"100
-[v main@r r `uc  1 a 1 3 ]
-"118
+"125
+[v main@n n `i  1 a 2 3 ]
+"124
+[v main@r r `uc  1 a 1 5 ]
+"145
 } 0
-"90
+"107
 [v _rx_byte rx_byte `(uc  1 e 1 0 ]
 {
-"92
-[v rx_byte@dado dado `uc  1 a 1 0 ]
+"109
+[v rx_byte@dado dado `uc  1 a 1 2 ]
+"121
+} 0
+"83
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+{
+[v delay_ms@tempo tempo `i  1 p 2 0 ]
 "97
 } 0
-"75
+"74
 [v _inicializa_com inicializa_com `(v  1 e 1 0 ]
 {
-"82
+"81
 } 0

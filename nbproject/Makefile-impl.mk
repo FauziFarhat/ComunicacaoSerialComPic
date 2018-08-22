@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ComunicacaoSerial.X
+PROJECTNAME=Nova pasta
 
 # Active Configuration
 DEFAULTCONF=default

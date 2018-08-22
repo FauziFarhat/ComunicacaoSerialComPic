@@ -71,27 +71,51 @@
 #include <xc.h>
 #define led PORTCbits.RC0 // led saída
 
-
 void inicializa_com(void) {
     //INICIALIZA PERIFÉRICO DE COMUNICAÇÃO
     TXSTA = 0b00100100; //MODO 8BITS, ASSÍNCRONO, HIGH SPEED
     RCSTA = 0b10010000; //habilita serial, 8 bits, habilitar recepcao
     BAUDCON = 0b01000000; //operando com divisor baud rate generator em modo 8bits
     SPBRG = 25; // veloc = 4.10e6 / (16 * (25 + 1 )) = 9615bps
-    
+
+}
+
+void delay_ms(int tempo) {
+    while (tempo > 0) {
+        T0CS = 0;
+        PSA = 0;
+        T0PS0 = 1;
+        T0PS1 = 0;
+        T0PS2 = 0;
+        TMR0IF = 0;
+        T08BIT = 1;
+        TMR0L = 0;
+        TMR0ON = 1;
+        while (TMR0IF == 0);
+        --tempo;
+    }
 }
 
 void tx_byte(char dado) {
     //rotina de transmissão
     TXREG = dado;
-    while(TXSTAbits.TRMT == 0);
+    while (TXSTAbits.TRMT == 0);
 }
+
+char piscar_led = 0; // se for 1, a rotina rx_byte devera piscar o led
 
 char rx_byte(void) {
     //rotina de recepção
     char dado;
     //rotina de rx
-    while(PIR1bits.RCIF == 00);
+    while (PIR1bits.RCIF == 00) {
+        if (piscar_led == 1) {
+            led = 1;
+            delay_ms(500);
+            led = 0;
+            delay_ms(500);
+        }
+    }
     dado = RCREG;
     return (dado);
 }
@@ -109,10 +133,13 @@ void main() {
         r = rx_byte();
         switch (r) {
             case '0': led = 0;
+                piscar_led = 0;
                 break;
             case '1': led = 1;
+                piscar_led = 0;
                 break;
-
+            case '2': piscar_led = 1;
+                break;
         }
     }
 }
